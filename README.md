@@ -1,68 +1,69 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Plug in
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [classnames](#classname)
 
-### `yarn start`
+## [classnames](https://www.npmjs.com/package/classnames)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+yarn add classnames
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### How to use?
 
-### `yarn test`
+```bash
+classNames('foo', 'bar'); // => 'foo bar'
+classNames('foo', { bar: true }); // => 'foo bar'
+classNames({ 'foo-bar': true }); // => 'foo-bar'
+classNames({ 'foo-bar': false }); // => ''
+classNames({ foo: true }, { bar: true }); // => 'foo bar'
+classNames({ foo: true, bar: true }); // => 'foo bar'
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+// lots of arguments of various types
+classNames('foo', { bar: true, duck: false }, 'baz', { quux: true }); // => 'foo bar baz quux'
 
-### `yarn build`
+// other falsy values are just ignored
+classNames(null, false, 'bar', undefined, 0, 1, { baz: null }, ''); // => 'bar 1'
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## reactstrap
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## chart.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[-----]
 
-### `yarn eject`
+# Not understand yet
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- core-js (code more abruptly)
+- chart.js (for creating chart)
+- [react-chartjs-2](https://www.npmjs.com/package/react-chartjs-2)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+As of 2.x we have made chart.js a peer dependency for greater flexibility. Please add chart.js as a dependency on your project to use 2.x. Currently, 2.5.x is the recommended version of chart.js to use.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- flag-icon-css (A collection of all country flags in SVG — plus the CSS for easier integration)
+- font-awesome
+- node-sass
+- [react-app-polyfill ](https://www.npmjs.com/package/react-app-polyfill)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+These modules ensure the following language features are present:
 
-## Learn More
+Promise (for async / await support)
+window.fetch (a Promise-based way to make web requests in the browser)
+Object.assign (a helper required for Object Spread, i.e. { ...a, ...b })
+Symbol (a built-in object used by for...of syntax and friends)
+Array.from (a built-in static method used by array spread, i.e. [...arr])
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [simple-line-icons](https://simplelineicons.github.io/) - [introduce](https://www.npmjs.com/package/simple-line-icons)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# [Enzyme for test ](https://enzymejs.github.io/enzyme/)
 
-### Code Splitting
+install these plugin
+"enzyme": "^3.10.0",
+"enzyme-adapter-react-16": "^1.14.0",
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [polyfill](for help render normal on IE9)
