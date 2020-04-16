@@ -4,3 +4,5 @@
 4. quy trinh van hanh cua no --> flow
 
 ---
+
+exports.\_\_esModule = true; <-- Để mục đích gì?

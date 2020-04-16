@@ -7,8 +7,8 @@ const DefaultLayout = () => {
   return (
     <>
       <DefaultHeader />
-      <DefaultAside />
-      <DefaultFooter />
+      {/* <DefaultAside /> */}
+      {/* <DefaultFooter /> */}
     </>
   );
 };
