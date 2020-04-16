@@ -20,15 +20,23 @@ import {
   Row,
 } from "reactstrap";
 
-const Login = () => {
+const Login = ({ setUser }) => {
+  const [account, setAccount] = useState({
+    username: "",
+    password: "",
+  });
+
   const _handleOnClick = () => {
     console.log("login submit");
+    setUser(account.username, account.password);
   };
 
   const _handleOnChange = (evt) => {
     const { name, value } = evt.target;
     console.log(name, value);
+    setAccount({ ...account, [name]: value });
   };
+  console.log(account);
 
   return (
     <div className="app flex-row align-items-center">
@@ -125,11 +133,10 @@ const Login = () => {
 
 const mapStateToProps = (state) => {
   const {
-    loginReducers: { data, loading },
+    appReducers: { data },
   } = state;
   return {
     data,
-    loading,
   };
 };
 
