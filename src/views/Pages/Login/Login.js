@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 import {
@@ -20,6 +20,12 @@ const Login = () => {
   const _handleOnClick = () => {
     console.log("login submit");
   };
+
+  const _handleOnChange = (evt) => {
+    const { name, value } = evt.target;
+    console.log(name, value);
+  };
+
   return (
     <div className="app flex-row align-items-center">
       <Container>
@@ -30,7 +36,7 @@ const Login = () => {
                 <CardBody>
                   <Form>
                     <h1>Login</h1>
-                    <div className="text-muted">Sign In your account</div>
+                    <p className="text-muted">Sign In your account</p>
                     <InputGroup className="mb-3">
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText>
@@ -41,6 +47,8 @@ const Login = () => {
                         type="text"
                         placeholder="Username"
                         autoComplete="username"
+                        name="username"
+                        onChange={(evt) => _handleOnChange(evt)}
                       />
                     </InputGroup>
                     <InputGroup className="mb-4">
@@ -50,7 +58,9 @@ const Login = () => {
                         </InputGroupText>
                       </InputGroupAddon>
                       <Input
+                        onChange={(evt) => _handleOnChange(evt)}
                         type="password"
+                        name="password"
                         placeholder="Password"
                         autoComplete="current-password"
                       />
@@ -66,9 +76,11 @@ const Login = () => {
                         </Button>
                       </Col>
                       <Col xs="6" className="text-right">
-                        <Button color="link" className="px-0">
-                          Forgot password?
-                        </Button>
+                        <Link to="forget-password">
+                          <Button color="link" className="px-0">
+                            Forgot password?
+                          </Button>
+                        </Link>
                       </Col>
                     </Row>
                   </Form>
