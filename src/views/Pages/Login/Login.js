@@ -33,10 +33,8 @@ const Login = ({ setUser }) => {
 
   const _handleOnChange = (evt) => {
     const { name, value } = evt.target;
-    console.log(name, value);
     setAccount({ ...account, [name]: value });
   };
-  console.log(account);
 
   return (
     <div className="app flex-row align-items-center">
@@ -133,10 +131,11 @@ const Login = ({ setUser }) => {
 
 const mapStateToProps = (state) => {
   const {
-    appReducers: { data },
+    appReducers: { email },
   } = state;
+  console.log(state);
   return {
-    data,
+    state,
   };
 };
 
