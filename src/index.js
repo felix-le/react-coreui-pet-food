@@ -1,7 +1,7 @@
 import "react-app-polyfill/ie9";
 import "react-app-polyfill/stable";
 
-import "./plyfill";
+// import "./plyfill";
 
 import React from "react";
 import ReactDOM from "react-dom";
