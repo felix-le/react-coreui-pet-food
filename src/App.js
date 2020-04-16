@@ -24,17 +24,19 @@ function App() {
   return (
     <Router history={createBrowserHistory()}>
       <React.Suspense fallback={loading()}>
-        <ul className="page-list">
-          {routes.map((route, idx) => {
-            return (
-              <li key={idx}>
-                <Link to={route.path}>{route.name}</Link>
-              </li>
-            );
-          })}
-          <li>
-            <button onClick={_handleLogout}>logout</button>
-          </li>
+        <>
+          <ul className="page-list no-bullet">
+            {routes.map((route, idx) => {
+              return (
+                <li key={idx}>
+                  <Link to={route.path}>{route.name}</Link>
+                </li>
+              );
+            })}
+            <li>
+              <button onClick={_handleLogout}>logout</button>
+            </li>
+          </ul>
           <Switch>
             {routes.map((route, idx) => {
               return route.component ? (
@@ -47,7 +49,7 @@ function App() {
               ) : null;
             })}
           </Switch>
-        </ul>
+        </>
       </React.Suspense>
     </Router>
   );

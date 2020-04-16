@@ -1,2 +1,2 @@
-import ChangePass from './ChangePass';
-export ChangePass;
+import Register from "./Register";
+export default Register;
