@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+
+// import actions
+import { setUser } from "../../../redux/actions";
 
 import { Link } from "react-router-dom";
 import {
@@ -119,4 +123,18 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  const {
+    loginReducers: { data, loading },
+  } = state;
+  return {
+    data,
+    loading,
+  };
+};
+
+const mapDispatchToProps = {
+  setUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
