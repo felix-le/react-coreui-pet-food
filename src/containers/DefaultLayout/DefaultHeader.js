@@ -17,12 +17,19 @@ import {
   AppSidebarToggler,
 } from "@coreui/react";
 
+import logo from "../../assets/img/brand/logo.svg";
+import sygnet from "../../assets/img/brand/sygnet.svg";
+
 const DefaultHeader = () => {
   return (
-    <div>
-      <p> this is defaulHeader</p>
-      <p>heehe</p>
-    </div>
+    <>
+      <AppSidebarToggler className="d-lg-none" display="md" mobile />
+      <AppNavbarBrand
+        full={{ src: logo, width: 89, height: 25, alt: "CoreUI logo" }}
+        minimized={{ src: sygnet, with: 30, alt: "CoreUI logo" }}
+      />
+      <AppSidebarToggler className="d-md-down-none" display="lg" />
+    </>
   );
 };
 

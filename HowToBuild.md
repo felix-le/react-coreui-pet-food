@@ -39,7 +39,23 @@ Default Layout call only 1 in app.
 
 ==> we need to understand what does {...props } mean ?
 
-### Create header nav
+### Create header default navbar
+
+1. phân tách components theo từng components con.
+2. Phân tách từng components
+3. lưu trữ từng component theo 2 loại thư mục:
+
+- thư mục 1: chứa các function riêng lẻ có thể sử dụng lại được. - reuse
+- Thư mục 2: chứa các functions khó có thể sử dụng lại được.
+
+Đối với mỗi hàm functions thì phải ghi ra công dụng của từng hàm.
+phương thức có thể sử dụng lại với các hàm đó.
+
+### phân tích AppNavbarBrand
+
+NavbarBrand -> pure js
+
+
 
 ---
 
