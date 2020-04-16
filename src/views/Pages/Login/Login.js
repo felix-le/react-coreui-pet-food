@@ -128,17 +128,17 @@ const Login = ({ setUser }) => {
     </div>
   );
 };
-
+// Đéo hiểu sao lại có thằng email xuất hiệntrong state
 const mapStateToProps = (state) => {
   const {
-    appReducers: { email },
+    appReducers: { data },
   } = state;
   console.log(state);
   return {
-    state,
+    data,
   };
 };
-
+// Đéo hiểu sao lại có thằng email xuất hiệntrong state
 const mapDispatchToProps = {
   setUser,
 };
