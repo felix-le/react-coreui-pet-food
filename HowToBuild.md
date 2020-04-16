@@ -35,4 +35,12 @@ redux-persist
 
 ## ==> So we must create default file first
 
+Default Layout call only 1 in app.
+
+==> we need to understand what does {...props } mean ?
+
+### Create header nav
+
+---
+
 dig in scss

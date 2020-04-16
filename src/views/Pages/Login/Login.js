@@ -33,10 +33,8 @@ const Login = ({ setUser }) => {
 
   const _handleOnChange = (evt) => {
     const { name, value } = evt.target;
-    console.log(name, value);
     setAccount({ ...account, [name]: value });
   };
-  console.log(account);
 
   return (
     <div className="app flex-row align-items-center">
@@ -130,16 +128,17 @@ const Login = ({ setUser }) => {
     </div>
   );
 };
-
+// Đéo hiểu sao lại có thằng email xuất hiệntrong state
 const mapStateToProps = (state) => {
   const {
     appReducers: { data },
   } = state;
+  console.log(state);
   return {
     data,
   };
 };
-
+// Đéo hiểu sao lại có thằng email xuất hiệntrong state
 const mapDispatchToProps = {
   setUser,
 };
