@@ -33,11 +33,11 @@ function App({ setUser }) {
         <>
           <ul className="page-list no-bullet">
             {routes.map((route, idx) => {
-              return (
+              return route.component && route.showListPage === true ? (
                 <li key={idx}>
                   <Link to={route.path}>{route.name}</Link>
                 </li>
-              );
+              ) : (null);
             })}
             <li>
               <button onClick={_handleLogout}>logout</button>
