@@ -16,7 +16,7 @@ const routes = [
   { path: "/login", showListPage:true, name: "Login Page", component: Login },
   { path: "/profile", showListPage:true,name: "User Profile", component: Profile },
   { path: "/reset-password", showListPage:true,name: "Reset Password", component: ResetPassword },
-  { path: "/register", showListPage:true,name: "Register", component: Register },
+  { path: "/register", showListPage:true, name: "Register", component: Register },
   {
     path: "/default-layout",
     exact: true,
