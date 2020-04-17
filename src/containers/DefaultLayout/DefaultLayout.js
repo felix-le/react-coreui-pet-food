@@ -1,13 +1,13 @@
 import React from "react";
-import DefaultHeader from "./DefaultHeader";
+// import DefaultHeader from "./DefaultHeader";
 import DefaultAside from "./DefaultAside";
-import DefaultFooter from "./DefaultFooter";
+// import DefaultFooter from "./DefaultFooter";
 
 const DefaultLayout = () => {
   return (
     <>
-      <DefaultHeader />
-      {/* <DefaultAside /> */}
+      {/* <DefaultHeader /> */}
+      <DefaultAside />
       {/* <DefaultFooter /> */}
     </>
   );

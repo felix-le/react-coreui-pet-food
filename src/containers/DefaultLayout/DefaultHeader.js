@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   Badge,
   UncontrolledDropdown,
@@ -8,16 +8,14 @@ import {
   DropdownToggle,
   Nav,
   NavItem,
-  Collapse,
+  // Collapse,
   NavbarToggler,
 } from "reactstrap";
 
 import routes from "../../routes";
-
 // core Ui plugin --> Need to analysis this function
 
 import logo from "../../assets/img/brand/logo.svg";
-import sygnet from "../../assets/img/brand/sygnet.svg";
 import avatar6 from "../../assets/img/avatars/6.jpg"
 const DefaultHeader = () => {
   const toggleNavbar = () => {
