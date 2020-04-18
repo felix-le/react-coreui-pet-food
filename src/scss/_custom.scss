@@ -33,19 +33,17 @@
 
 // Header navbar
 
-
-.navbar-wrapper{
+.navbar-wrapper {
   display: flex;
   background: white;
   align-items: center;
   max-height: 55px;
 }
-.navbar-nav{
+.navbar-nav {
   flex-direction: row;
 }
 
-.app-header.navbar-brand{
-
+.app-header.navbar-brand {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -56,26 +54,24 @@
   background-color: transparent;
 }
 
-
-
-.header-logo{
+.header-logo {
   width: 89px;
   height: 25px;
 }
-.header-logo-mobile{
-  width:30px;
+.header-logo-mobile {
+  width: 30px;
   height: 30px;
   display: none;
 }
 
-.navbar-toggler-icon{
+.navbar-toggler-icon {
   background-image: url("../assets/img/elements/hamburger.svg");
   height: 23px;
 }
 
 .d-md-down-block {
   display: none;
-  @media only screen and (max-width: 991.98px){
+  @media only screen and (max-width: 991.98px) {
     display: block;
     vertical-align: middle;
     width: 100%;
@@ -83,20 +79,15 @@
 }
 //  End Header navbar
 
-
 // BEGIN FOOTER
 
-
-.app-footer{
+.app-footer {
   padding: 20px 50px;
 }
 
-
-
 // Side nav sidebar
 
-
-.app-sidebar{
+.app-sidebar {
   height: calc(100vh - 55px);
   margin-left: 0;
   // position: fixed;
@@ -106,25 +97,22 @@
   flex: 0 0 200px;
   order: -1;
   display: flex;
-    flex-direction: column;
-    padding: 0;
-    color: #fff;
-    background: #2f353a;
+  flex-direction: column;
+  padding: 0;
+  color: #fff;
+  background: #2f353a;
 }
 
-
-.sidebar-wrapper{
+.sidebar-wrapper {
   width: 100%;
 }
 
-
-.sidebar-wrapper .nav-link.active{
+.sidebar-wrapper .nav-link.active {
   color: #fff;
   background: #3a4248;
 }
 
-.sidebar-wrapper .nav-title{
-
+.sidebar-wrapper .nav-title {
   padding: 0.75rem 1rem;
   font-size: 80%;
   font-weight: 700;
@@ -132,3 +120,42 @@
   text-transform: uppercase;
 }
 
+.nav {
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  li {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    color: #fff;
+    padding: 0.75rem 1rem;
+    input {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 40px;
+      cursor: pointer;
+      opacity: 0;
+
+      &:checked + ul {
+        display: block;
+      }
+    }
+    ul {
+      display: none;
+    }
+  }
+  &__parent {
+    height: 40px;
+    line-height: 40px;
+  }
+}
