@@ -9,7 +9,7 @@ const DefaultSideBarNav = () => {
       name: "Dashboard",
       path: "Dashboard",
       span: "badge badge-info",
-      contenSpan: "NEW",
+      contentSpan: " NEW",
     },
     {
       id: Math.random(),
@@ -18,16 +18,17 @@ const DefaultSideBarNav = () => {
       path: "login",
     }
   ];
+  // "nav-icon" ${item.icon} 
   const NavItem = () => {
     return(
       navItems.map((item) => {
         return(
           <li className="nav-item" key={item.id}>
             <Link to={item.path} className="nav-link">
-              <i className="nav-icon `${item.icon}`" />
+              <i className={`nav-icon ${item.icon} `}/>
               {item.name}
                 {item.span ? 
-                (<span className="{item.span}">{item.contenSpan}</span>) :(null)
+                (<span className="{item.span}">{item.contentSpan}</span>) :(null)
               }
             </Link>
           </li>
