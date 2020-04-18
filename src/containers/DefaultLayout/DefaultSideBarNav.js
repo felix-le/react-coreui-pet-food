@@ -18,6 +18,8 @@ const DefaultSideBarNav = () => {
       path: "login",
     }
   ];
+
+  // Bây giờ làm thế nào với trường hợp chỉ render ra cái title thôi? Nếu dùng cái if not ... path, icon thì dài quá ...
   // "nav-icon" ${item.icon} 
   const NavItem = () => {
     return(
