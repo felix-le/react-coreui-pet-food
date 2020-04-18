@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Badge,
   UncontrolledDropdown,
@@ -25,9 +25,9 @@ const DefaultHeader = () => {
   return (
     <>
       <div className="navbar-wrapper">
-        <a className="nav-logo-wrapper app-header navbar-brand">
+        <Link className="nav-logo-wrapper app-header navbar-brand">
           <img src={logo} alt="logo" className="header-logo d-md-down-none navbar-brand-full"/>
-        </a>
+        </Link>
         <NavbarToggler onClick={() => toggleNavbar()} className="mr-2" />
         <Nav className="d-md-down-none" navbar>
           {routes.map((route, idx) => {

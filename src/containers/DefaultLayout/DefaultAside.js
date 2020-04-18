@@ -18,11 +18,12 @@ const DefaultAside = () => {
 
   const NavRightTab = () =>{
     return (
-      <NavItem>
-        <NavLink onClick={(id) =>toggle(id)}>
-          <i className={tab.icon}></i>
-        </NavLink>
-      </NavItem>
+      // <NavItem>
+      //   <NavLink onClick={(id) =>toggle(id)}>
+      //     <i className="icon-" ></i>
+      //   </NavLink>
+      // </NavItem>
+      <p>this is navright tab</p>
     )
   }
 

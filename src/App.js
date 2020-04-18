@@ -5,8 +5,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 // plugins
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { createBrowserHistory } from "history";
+import { HashRouter, Switch, Route, Link } from "react-router-dom";
 
 // import components from routes
 import routes from "./routes";
@@ -28,36 +27,36 @@ function App({ setUser }) {
     setUser("");
   };
   return (
-    <Router history={createBrowserHistory()}>
-      <React.Suspense fallback={loading()}>
-        <>
-          <ul className="page-list no-bullet">
-            {routes.map((route, idx) => {
-              return route.component && route.showListPage === true ? (
-                <li key={idx}>
-                  <Link to={route.path}>{route.name}</Link>
-                </li>
-              ) : (null);
-            })}
-            <li>
-              <button onClick={_handleLogout}>logout</button>
-            </li>
-          </ul>
-          <Switch>
-            {routes.map((route, idx) => {
-              return route.component ? (
-                <Route
-                  key={idx}
-                  path={route.path}
-                  exact={route.exact}
-                  component={route.component}
-                />
-              ) : null;
-            })}
-          </Switch>
-        </>
-      </React.Suspense>
-    </Router>
+    <HashRouter>
+        <React.Suspense fallback={loading()}>
+          <>
+            <ul className="page-list no-bullet">
+              {routes.map((route, idx) => {
+                return route.component && route.showListPage === true ? (
+                  <li key={idx}>
+                    <Link to={route.path}>{route.name}</Link>
+                  </li>
+                ) : null;
+              })}
+              <li>
+                <button onClick={_handleLogout}>logout</button>
+              </li>
+            </ul>
+            <Switch>
+              {routes.map((route, idx) => {
+                return route.component ? (
+                  <Route
+                    key={idx}
+                    path={route.path}
+                    exact={route.exact}
+                    component={route.component}
+                  />
+                ) : null;
+              })}
+            </Switch>
+          </>
+        </React.Suspense>
+    </HashRouter>
   );
 }
 
