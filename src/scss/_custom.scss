@@ -84,11 +84,50 @@
 //  End Header navbar
 
 
-
-
 // BEGIN FOOTER
 
 
 .app-footer{
   padding: 20px 50px;
+}
+
+
+
+// Side nav sidebar
+
+
+.app-sidebar{
+  height: calc(100vh - 55px);
+  margin-left: 0;
+  // position: fixed;
+  z-index: 1019;
+  width: 200px;
+  height: 100vh;
+  flex: 0 0 200px;
+  order: -1;
+  display: flex;
+    flex-direction: column;
+    padding: 0;
+    color: #fff;
+    background: #2f353a;
+}
+
+
+.sidebar-wrapper{
+  width: 100%;
+}
+
+
+.sidebar-wrapper .nav-link.active{
+  color: #fff;
+  background: #3a4248;
+}
+
+.sidebar-wrapper .nav-title{
+
+  padding: 0.75rem 1rem;
+  font-size: 80%;
+  font-weight: 700;
+  color: #e4e7ea;
+  text-transform: uppercase;
 }
