@@ -38,6 +38,7 @@ const DefaultSideBarNav = () => {
 
   // Truờng hợp khi bấm vào link thay vì chuyển trang thì nó lại đứng im tại chỗ?
   // Giải bài toán cái dropdown trong trường hợp này như nào? chắc phải lồng obj trong obj
+  // link https://coreui.io/react/demo/#/dashboard -- phần base?
   const NavItem = () => {
     return (
       <div className="sidebar-wrapper">
