@@ -36,8 +36,8 @@ const DefaultSideBarNav = () => {
     },
   ];
 
-  // Bây giờ làm thế nào với trường hợp chỉ render ra cái title thôi? Nếu dùng cái if not ... path, icon thì dài quá ...
-  // "nav-icon" ${item.icon}
+  // Truờng hợp khi bấm vào link thay vì chuyển trang thì nó lại đứng im tại chỗ?
+  // Giải bài toán cái dropdown trong trường hợp này như nào? chắc phải lồng obj trong obj
   const NavItem = () => {
     return (
       <div className="sidebar-wrapper">
