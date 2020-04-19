@@ -8,11 +8,13 @@ import Register from "./views/Pages/Register";
 import DefaultLayout from "./containers/DefaultLayout";
 import Settings from './views/Pages/Settings';
 import Users from './views/Pages/Users'
+import Food from './views/Pages/Food'
+import Infor from './views/Pages/Infor'
 // import TestFunction
 const routes = [
   { path: "/change-password", showListPage:true,name: "Change Passwords", component: ChangePass },
   { path: "/dashboard", showListPage:false,  name: "Dashboard", component: Dashboard },
-  { path: "/forget-password", name: "Forget Password", component: ForgetPass },
+  { path: "/forget-password", showListPage:true, name: "Forget Password", component: ForgetPass },
   { path: "/login", showListPage:true, name: "Login Page", component: Login },
   { path: "/profile", showListPage:true,name: "User Profile", component: Profile },
   { path: "/reset-password", showListPage:true,name: "Reset Password", component: ResetPassword },
@@ -27,6 +29,9 @@ const routes = [
 
   { path: "/Settings", showListPage:false,name: "Settings", component: Settings },
   { path: "/Users", showListPage:false,name: "Users", component: Users },
+  { path: "/information", showListPage:false,name: "About Project", component: Infor },
+
+  { path: "/Food", showListPage:false,name: "Food", component: Food },
 ];
 
 export default routes;

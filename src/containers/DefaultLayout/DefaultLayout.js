@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import * as router from "react-router-dom";
+// import { Redirect, Route, Switch } from "react-router-dom";
+// import * as router from "react-router-dom";
 import { Container } from "reactstrap";
 
 import DefaultHeader from "./DefaultHeader";
@@ -25,7 +25,7 @@ const DefaultLayout = () => {
             </Suspense>
           </div>
           <div className="app-main">
-            <div className="link-explorer">
+            <div className="explorer-link">
               <p> this is link explorer</p>
             </div>
             <Container fluid>

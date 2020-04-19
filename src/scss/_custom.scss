@@ -90,7 +90,6 @@
 .app-sidebar {
   height: calc(100vh - 55px);
   margin-left: 0;
-  // position: fixed;
   z-index: 1019;
   width: 200px;
   height: 100vh;
@@ -146,7 +145,13 @@
       cursor: pointer;
       opacity: 0;
 
-      &:checked + ul {
+      &:checked ~ ul {
+        display: block;
+      }
+      &:checked ~  .nav__icon .icon-arrow-right {
+        display: none
+      }
+      &:checked ~ .nav__icon .icon-arrow-down {
         display: block;
       }
     }
@@ -154,8 +159,24 @@
       display: none;
     }
   }
+  &__icon {
+    position: absolute;
+    right: 0;
+    top: 24px;
+    i {
+      position: absolute;
+      right: 10px;
+      top: 0;
+    }
+  }
   &__parent {
     height: 40px;
     line-height: 40px;
+  }
+  .icon-arrow-right {
+    display: block
+  }
+  .icon-arrow-down {
+    display: none;
   }
 }
