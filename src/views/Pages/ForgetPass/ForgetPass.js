@@ -35,9 +35,7 @@ const ForgetPass = () => {
                     <p className="text-muted">
                       Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                       Sed quod temporibus est ipsum minima fuga obcaecati
-                      quibusdam, molestias corrupti mollitia dignissimos
-                      excepturi voluptates. Reprehenderit ab eos, fugiat error
-                      veniam omnis.
+                      quibusdam, 
                     </p>
                     <InputGroup className="mb-3">
                       <Input

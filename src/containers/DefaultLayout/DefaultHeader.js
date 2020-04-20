@@ -25,15 +25,15 @@ const DefaultHeader = () => {
   return (
     <>
       <div className="navbar-wrapper">
-        <Link className="nav-logo-wrapper app-header navbar-brand">
+        <Link className="nav-logo-wrapper app-header navbar-brand" to="\">
           <img src={logo} alt="logo" className="header-logo d-md-down-none navbar-brand-full"/>
         </Link>
         <NavbarToggler onClick={() => toggleNavbar()} className="mr-2" />
         <Nav className="d-md-down-none" navbar>
           {routes.map((route, idx) => {
             return route.component && route.showListPage === false ? (
-              <NavItem className="px-3">
-                <NavLink to={route.path} className="nav-link" key={idx}>
+              <NavItem className="px-3" key={idx}>
+                <NavLink to={route.path} className="nav-link">
                   {route.name}
                 </NavLink>
               </NavItem>

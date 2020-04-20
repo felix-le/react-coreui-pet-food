@@ -21,7 +21,7 @@ const DefaultSideBarNav = () => {
             </Link>
           </li>
           <li >
-            <div class="nav__parent">
+            <div className="nav__parent">
               <i className="nav-icon icon-puzzle"></i>
               Management
             </div>
@@ -32,7 +32,7 @@ const DefaultSideBarNav = () => {
             </div>
             <ul>
               <li>
-                <Link to="/user">Users</Link>
+                <Link to="/users">Users</Link>
               </li>
               <li>
                 <Link to="/Food">Food</Link>

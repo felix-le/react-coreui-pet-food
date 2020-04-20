@@ -180,3 +180,32 @@
     display: none;
   }
 }
+// css main
+
+.app-main{
+  width: 100%;
+}
+
+// User page
+
+.btn-container{
+  display: flex;
+  button{
+    margin-left: 20px;
+  }
+  button:first-child{
+    margin-left: 0;
+  }
+}
+.avatar-user-wrapper {
+  img{
+    max-width: 80px;
+    height: auto;
+  }
+}
+.user-table{
+  width: 100%;
+}
+.btn-block + .btn-block{
+  margin-top: 0;
+}

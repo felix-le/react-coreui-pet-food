@@ -5,14 +5,16 @@ import React from "react";
 import { connect } from "react-redux";
 
 // plugins
-import { HashRouter, Switch, Route, Link } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 
-// import components from routes
-import routes from "./routes";
 
 // import scss
 import "./App.scss";
 
+import Login from "./views/Pages/Login";
+import ForgotPassword from "./views/Pages/ForgetPass";
+// import Dashboard from './views/Dashboard'
+import DefaultLayout from "./containers/DefaultLayout";
 // import actions
 
 import { setUser } from "./redux/actions";
@@ -23,39 +25,22 @@ const loading = () => (
 );
 
 function App({ setUser }) {
-  const _handleLogout = () => {
-    setUser("");
-  };
   return (
     <HashRouter>
-        <React.Suspense fallback={loading()}>
-          <>
-            <ul className="page-list no-bullet">
-              {routes.map((route, idx) => {
-                return route.component && route.showListPage === true ? (
-                  <li key={idx}>
-                    <Link to={route.path}>{route.name}</Link>
-                  </li>
-                ) : null;
-              })}
-              <li>
-                <button onClick={_handleLogout}>logout</button>
-              </li>
-            </ul>
-            <Switch>
-              {routes.map((route, idx) => {
-                return route.component ? (
-                  <Route
-                    key={idx}
-                    path={route.path}
-                    exact={route.exact}
-                    component={route.component}
-                  />
-                ) : null;
-              })}
-            </Switch>
-          </>
-        </React.Suspense>
+      <React.Suspense fallback={loading()}>
+        <>
+          <Switch>
+            <Route exact path="/login" name="Login Page" component={Login} />
+            <Route
+              exact
+              path="/forgot-password"
+              name="Login Page"
+              component={ForgotPassword}
+            />
+            <Route path="/" name="Home" component={DefaultLayout} />
+          </Switch>
+        </>
+      </React.Suspense>
     </HashRouter>
   );
 }

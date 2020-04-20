@@ -1,7 +1,14 @@
 import React from "react";
+import Infor from '../Pages/Infor'
+
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+
+  return(
+    <>
+      <Infor />
+    </>
+  )
 };
 
 export default Dashboard;
