@@ -8,11 +8,6 @@ const Users = (props) => {
   const [initialUsers, setInitiaUsers] = useState([]);
   const [visibleUsers, setVisibleUsers] = useState([]);
 
-  const _handleSearchValue = (event) => {
-    const { value } = event.target;
-    console.log(value);
-  };
-
   useEffect(() => {
     setTimeout(() => {
       fetchUsers();
@@ -23,6 +18,7 @@ const Users = (props) => {
       setVisibleUsers(res.data);
     };
   }, []);
+
   const _handleUpdate = (id) => {
     console.log("update", id);
   };
@@ -35,9 +31,16 @@ const Users = (props) => {
     const removeArr = visibleUsers.filter(item => item.id !== id)
     setVisibleUsers(removeArr)
   };
-
-
-
+  // console.log('initialUsers', initialUsers)
+  const _handleSearchValue = (event) => {
+    const { value } = event.target;
+    
+    const keywords = value.toLowerCase()
+    const filterUser = initialUsers.filter(
+      user => user.name.toLowerCase().indexOf(keywords) !== -1
+    );
+    setVisibleUsers(filterUser)
+  };
   return (
     <div className="user-page-wrapper">
       <header className="user-header">
@@ -49,7 +52,7 @@ const Users = (props) => {
           <input
             type="text"
             className="form-control input-search"
-            placeholder="Please input your keywords"
+            placeholder="Please input keywords of name"
             onChange={_handleSearchValue}
           />
         </div>
