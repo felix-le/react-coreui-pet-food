@@ -1,4 +1,4 @@
-import { SET_USER } from "./types";
+import { SET_USER, REMOVE_USER } from "./types";
 
 export const setUser = (username, password) => ({
   type: SET_USER,
@@ -6,5 +6,13 @@ export const setUser = (username, password) => ({
     id: Math.random(),
     username,
     password,
+  },
+});
+
+export const removeUser = (id) => ({
+  type: REMOVE_USER,
+  payload: {
+    id,
+    loading: false,
   },
 });

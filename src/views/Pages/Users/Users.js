@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+
 // Import components
-import Button from "./components/Button";
+// import Button from "./components/Button";
 import User from "./components/User";
 
-const Users = (props) => {
+import { removeUser } from "../../../redux/actions";
+
+const Users = ({ history, removeUser, visibleUsersApi }) => {
   const [initialUsers, setInitiaUsers] = useState([]);
   const [visibleUsers, setVisibleUsers] = useState([]);
 
@@ -24,22 +28,22 @@ const Users = (props) => {
   };
 
   const _handleView = (id) => {
-    props.history.push(`/detail-user/${id}`)
+    history.push(`/detail-user/${id}`);
   };
 
   const _handleDelete = (id) => {
-    const removeArr = visibleUsers.filter(item => item.id !== id)
-    setVisibleUsers(removeArr)
+    const removeArr = visibleUsers.filter((item) => item.id !== id);
+    setVisibleUsers(removeArr);
   };
   // console.log('initialUsers', initialUsers)
   const _handleSearchValue = (event) => {
     const { value } = event.target;
-    
-    const keywords = value.toLowerCase()
+
+    const keywords = value.toLowerCase();
     const filterUser = initialUsers.filter(
-      user => user.name.toLowerCase().indexOf(keywords) !== -1
+      (user) => user.name.toLowerCase().indexOf(keywords) !== -1
     );
-    setVisibleUsers(filterUser)
+    setVisibleUsers(filterUser);
   };
   return (
     <div className="user-page-wrapper">
@@ -97,4 +101,20 @@ const Users = (props) => {
   );
 };
 
-export default Users;
+const mapStateToProps = (state) => {
+  const {
+    reducers: { visibleUsersApi, loading, error },
+  } = state;
+  console.log(state);
+  return {
+    visibleUsersApi,
+    loading,
+    error,
+  };
+};
+
+const mapDispatchToProps = {
+  removeUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Users);

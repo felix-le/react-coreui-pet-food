@@ -1,7 +1,8 @@
-import { SET_USER } from "./types";
+import { SET_USER, REMOVE_USER } from "./types";
 
 const initialState = {
   data: "",
+  visibleUsersApi: [],
   loading: false,
   error: false,
 };
@@ -14,6 +15,18 @@ const reducers = (state = initialState, action) => {
         data: [...state.data, action.payload],
       };
     }
+    //------------------------------------------------------------
+
+    case REMOVE_USER: {
+      return {
+        ...state,
+        visibleUsersApi: state.visibleUsersApi.filter((user) => {
+          return user.id !== action.payload.id;
+        }),
+      };
+    }
+    //------------------------------------------------------------
+
     default:
       return state;
   }
