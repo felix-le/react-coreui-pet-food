@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios'
+import axios from "axios";
 // Import components
 import Button from "./components/Button";
 import User from "./components/User";
 
-const Users = () => {
+const Users = (props) => {
   const [initialUsers, setInitiaUsers] = useState([]);
   const [visibleUsers, setVisibleUsers] = useState([]);
 
@@ -14,28 +14,29 @@ const Users = () => {
   };
 
   useEffect(() => {
-    setTimeout(() =>{
-      const fetchUsers = async () =>{
-        const res = await axios.get("http://localhost:4000/users")
-        console.log(res)
-        setInitiaUsers(res.data)
-        setVisibleUsers(res.data)
-      };
-      fetchUsers()
-    }, 100)
+    setTimeout(() => {
+      fetchUsers();
+    }, 100);
+    const fetchUsers = async () => {
+      const res = await axios.get("http://localhost:4000/users");
+      setInitiaUsers(res.data);
+      setVisibleUsers(res.data);
+    };
   }, []);
   const _handleUpdate = (id) => {
-    console.log('update', id)
-  }
+    console.log("update", id);
+  };
 
-  const _handleView = (id) =>{
-  console.log("OUTPUT: _handleView -> id", id);
-  }
+  const _handleView = (id) => {
+    props.history.push(`/detail-user/${id}`)
+  };
 
-  const _handleDelete= id =>{
-  console.log("OUTPUT: Users -> id", id);
-    
-  }
+  const _handleDelete = (id) => {
+    const removeArr = visibleUsers.filter(item => item.id !== id)
+    setVisibleUsers(removeArr)
+  };
+
+
 
   return (
     <div className="user-page-wrapper">
@@ -67,11 +68,11 @@ const Users = () => {
           <tbody>
             {visibleUsers.length ? (
               visibleUsers.map((user, idx) => {
-                return(
+                return (
                   <tr key={Math.random()} className="userItem">
-                    <User 
+                    <User
                       idx={idx}
-                      name ={user.name}
+                      name={user.name}
                       avatar={user.avatar}
                       role={user.role}
                       gender={user.gender}
@@ -81,42 +82,13 @@ const Users = () => {
                       handleDelete={() => _handleDelete(user.id)}
                     />
                   </tr>
-
-
-
-
-
-                )
+                );
               })
-            ): (<div>loading...</div>)}
-
-
-
-
+            ) : (
+              <div>loading...</div>
+            )}
           </tbody>
         </table>
-
-        <ul className="user-list no-bullet">
-          {visibleUsers.length ? (
-            visibleUsers.map((user, idx) => {
-              return(
-                <li key={Math.random()} className="userItem">
-                  <User 
-                    idx={idx}
-                    name ={user.name}
-                    avatar={user.avatar}
-                    role={user.role}
-                    gender={user.gender}
-                    email={user.email}
-                    handleUpdate={() => _handleUpdate(user.id)}
-                    handleView={() => _handleView(user.id)}
-                    handleDelete={() => _handleDelete(user.id)}
-                  />
-                </li>
-              )
-            })
-          ): (<div>loading...</div>)}
-        </ul>
       </section>
     </div>
   );
