@@ -2,7 +2,7 @@ import { SET_USER, REMOVE_USER } from "./types";
 
 const initialState = {
   data: "",
-  visibleUsersApi: [],
+  visibleUsersRedux: [],
   loading: false,
   error: false,
 };
@@ -20,7 +20,7 @@ const reducers = (state = initialState, action) => {
     case REMOVE_USER: {
       return {
         ...state,
-        visibleUsersApi: state.visibleUsersApi.filter((user) => {
+        visibleUsersRedux: state.visibleUsersRedux.filter((user) => {
           return user.id !== action.payload.id;
         }),
       };

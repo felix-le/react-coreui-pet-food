@@ -8,7 +8,7 @@ import User from "./components/User";
 
 import { removeUser } from "../../../redux/actions";
 
-const Users = ({ history, removeUser, visibleUsersApi }) => {
+const Users = ({ history, removeUser, visibleUsersRedux }) => {
   const [initialUsers, setInitiaUsers] = useState([]);
   const [visibleUsers, setVisibleUsers] = useState([]);
 
@@ -33,6 +33,7 @@ const Users = ({ history, removeUser, visibleUsersApi }) => {
 
   const _handleDelete = (id) => {
     const removeArr = visibleUsers.filter((item) => item.id !== id);
+
     setVisibleUsers(removeArr);
   };
   // console.log('initialUsers', initialUsers)
@@ -103,11 +104,11 @@ const Users = ({ history, removeUser, visibleUsersApi }) => {
 
 const mapStateToProps = (state) => {
   const {
-    reducers: { visibleUsersApi, loading, error },
+    appReducers: { visibleUsersRedux, loading, error },
   } = state;
   console.log(state);
   return {
-    visibleUsersApi,
+    visibleUsersRedux,
     loading,
     error,
   };
