@@ -16,22 +16,59 @@ const DetailUser = () => {
       fetchUsers();
     }, 100);
   }, [id]);
+
+  const userDetails = user
+    ? Object.entries(user)
+    : [
+        [
+          "id",
+          <span>
+            <i className="text-muted icon-ban"></i> Not found
+          </span>,
+        ],
+      ];
+
   return (
     <>
       {Object.keys(user).length > 0 ? (
-        <div key={user.id} className="well">
-          <h1>{user.name}</h1>
-          <h3>
-            <img
-              src={user.avatar}
-              alt={user.name}
-              style={{ "max-height": "320px" }}
-            />
-          </h3>
-          <p>{user.role}</p>
-          <p>{user.gender}</p>
-          <p>{user.email}</p>
-        </div>
+        <Row>
+          <Col lg={6}>
+            <Card>
+              <CardHeader>
+                <strong>
+                  <i className="icon-info pr-1"></i>
+                  User id: {id}
+                </strong>
+              </CardHeader>
+              <CardBody>
+                <Table responsive striped hover>
+                  <tbody>
+                    {userDetails.map(([key, value]) => {
+                      return (
+                        <tr key={key}>
+                          <td>{`${key}:`}</td>
+                          <td>
+                            <strong>
+                              {value === user.avatar ? (
+                                <img
+                                  src={user.avatar}
+                                  alt={user.name}
+                                  style={{ maxHeight: "300px" }}
+                                />
+                              ) : (
+                                value
+                              )}
+                            </strong>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </Table>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
       ) : null}
     </>
   );
