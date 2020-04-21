@@ -4,6 +4,7 @@ import Settings from "./views/Pages/Settings";
 import Infor from "./views/Pages/Infor";
 import Dashboard from "./views/Dashboard";
 import DetailUser from "./views/Pages/DetailUser";
+import Profile from "./views/Pages/Profile";
 
 // configs
 import { URL_PAGE } from "./configs";
@@ -24,6 +25,7 @@ const mainRoutes = [
     exact: true,
   },
   { path: URL_PAGE.USERS, name: "Users", component: Users, exact: true },
+  { path: URL_PAGE.PROFILE, name: "profile", component: Profile, exact: true },
   {
     path: `${URL_PAGE.USERS_DETAIL}/:id`,
     name: "Detail User",

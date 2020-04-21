@@ -39,6 +39,7 @@
   align-items: center;
   max-height: 55px;
 }
+
 .navbar-nav {
   flex-direction: row;
 }
@@ -58,6 +59,7 @@
   width: 89px;
   height: 25px;
 }
+
 .header-logo-mobile {
   width: 30px;
   height: 30px;
@@ -71,12 +73,14 @@
 
 .d-md-down-block {
   display: none;
+
   @media only screen and (max-width: 991.98px) {
     display: block;
     vertical-align: middle;
     width: 100%;
   }
 }
+
 //  End Header navbar
 
 // BEGIN FOOTER
@@ -124,11 +128,13 @@
     padding: 0;
     margin: 0;
   }
+
   a {
     display: block;
     width: 100%;
     height: 100%;
   }
+
   li {
     display: block;
     width: 100%;
@@ -136,6 +142,7 @@
     position: relative;
     color: #fff;
     padding: 0.75rem 1rem;
+
     input {
       position: absolute;
       left: 0;
@@ -145,67 +152,112 @@
       cursor: pointer;
       opacity: 0;
 
-      &:checked ~ ul {
+      &:checked~ul {
         display: block;
       }
-      &:checked ~  .nav__icon .icon-arrow-right {
+
+      &:checked~.nav__icon .icon-arrow-right {
         display: none
       }
-      &:checked ~ .nav__icon .icon-arrow-down {
+
+      &:checked~.nav__icon .icon-arrow-down {
         display: block;
       }
     }
+
     ul {
       display: none;
     }
   }
+
   &__icon {
     position: absolute;
     right: 0;
     top: 24px;
+
     i {
       position: absolute;
       right: 10px;
       top: 0;
     }
   }
+
   &__parent {
     height: 40px;
     line-height: 40px;
   }
+
   .icon-arrow-right {
     display: block
   }
+
   .icon-arrow-down {
     display: none;
   }
 }
+
 // css main
 
-.app-main{
+.app-main {
   width: 100%;
 }
 
 // User page
 
-.btn-container{
+.btn-container {
   display: flex;
-  button{
+
+  button {
     margin-left: 20px;
   }
-  button:first-child{
+
+  button:first-child {
     margin-left: 0;
   }
 }
+
 .avatar-user-wrapper {
-  img{
+  img {
     max-width: 80px;
     height: auto;
   }
 }
-.user-table{
+
+.user-table {
   width: 100%;
 }
-.btn-block + .btn-block{
+
+.btn-block+.btn-block {
   margin-top: 0;
+}
+
+
+// Profile
+
+.avatar-all-wrapper {
+  // background-color: inherit;
+  border: none;
+  align-items: center;
+  padding: 15px;
+
+}
+
+.img-avatar-wrapper {
+  width: 100%;
+  background-color: inherit;
+  text-align: center;
+
+
+  img {
+    width: 50%;
+    max-height: 200px;
+    border-radius: 50%;
+  }
+
+}
+
+.avatar-text-wrapper {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
 }
