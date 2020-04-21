@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+<<<<<<< HEAD
 import { connect } from "react-redux";
+=======
+>>>>>>> befb58860a10fdfaf250896d57301912fa075007
 
 // Import components
 // import Button from "./components/Button";
 import User from "./components/User";
 
+<<<<<<< HEAD
 import { removeUser } from "../../../redux/actions";
 
 const Users = ({ history, removeUser, visibleUsersRedux }) => {
+=======
+// configs
+import { URL_PAGE } from "../../../configs";
+
+const Users = (props) => {
+>>>>>>> befb58860a10fdfaf250896d57301912fa075007
   const [initialUsers, setInitiaUsers] = useState([]);
   const [visibleUsers, setVisibleUsers] = useState([]);
 
@@ -28,12 +38,19 @@ const Users = ({ history, removeUser, visibleUsersRedux }) => {
   };
 
   const _handleView = (id) => {
+<<<<<<< HEAD
     history.push(`/detail-user/${id}`);
+=======
+    props.history.push(`${URL_PAGE.USERS_DETAIL}/${id}`);
+>>>>>>> befb58860a10fdfaf250896d57301912fa075007
   };
 
   const _handleDelete = (id) => {
     const removeArr = visibleUsers.filter((item) => item.id !== id);
+<<<<<<< HEAD
 
+=======
+>>>>>>> befb58860a10fdfaf250896d57301912fa075007
     setVisibleUsers(removeArr);
   };
   // console.log('initialUsers', initialUsers)
