@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Spinner } from "reactstrap";
 import { connect } from "react-redux";
 
 // Import components
@@ -18,7 +19,7 @@ const Users = ({ history, removeUser, visibleUsersRedux }) => {
   useEffect(() => {
     setTimeout(() => {
       fetchUsers();
-    }, 100);
+    }, 500);
     const fetchUsers = async () => {
       const res = await axios.get("http://localhost:4000/users");
       setInitiaUsers(res.data);
@@ -95,7 +96,7 @@ const Users = ({ history, removeUser, visibleUsersRedux }) => {
                 );
               })
             ) : (
-              <div>loading...</div>
+              <Spinner color="info" />
             )}
           </tbody>
         </table>
