@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 // Import components
 import Button from "./components/Button";
 import User from "./components/User";
+
+// configs
+import { URL_PAGE } from "../../../configs";
 
 const Users = (props) => {
   const [initialUsers, setInitiaUsers] = useState([]);
@@ -24,22 +28,22 @@ const Users = (props) => {
   };
 
   const _handleView = (id) => {
-    props.history.push(`/detail-user/${id}`)
+    props.history.push(`${URL_PAGE.USERS_DETAIL}/${id}`);
   };
 
   const _handleDelete = (id) => {
-    const removeArr = visibleUsers.filter(item => item.id !== id)
-    setVisibleUsers(removeArr)
+    const removeArr = visibleUsers.filter((item) => item.id !== id);
+    setVisibleUsers(removeArr);
   };
   // console.log('initialUsers', initialUsers)
   const _handleSearchValue = (event) => {
     const { value } = event.target;
-    
-    const keywords = value.toLowerCase()
+
+    const keywords = value.toLowerCase();
     const filterUser = initialUsers.filter(
-      user => user.name.toLowerCase().indexOf(keywords) !== -1
+      (user) => user.name.toLowerCase().indexOf(keywords) !== -1
     );
-    setVisibleUsers(filterUser)
+    setVisibleUsers(filterUser);
   };
   return (
     <div className="user-page-wrapper">
