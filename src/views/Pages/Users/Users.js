@@ -27,7 +27,7 @@ const Users = ({
   useEffect(() => {
     setTimeout(() => {
       fectchUsers();
-    }, 1000);
+    }, 100);
   }, []);
   const _handleUpdate = (id) => {
     console.log("update", id);
@@ -46,6 +46,20 @@ const Users = ({
     const keywordsSearch = value.toLowerCase();
     searchUser(keywordsSearch);
   };
+
+  const Model = () => {
+    return (
+      <div className="modal" id="modal">
+        <h2>modal window</h2>
+        <div className="content">hello</div>
+        <div className="action">
+          <button>close</button>
+        </div>
+      </div>
+    );
+  };
+  const _handleShowUp = () => {};
+
   return (
     <div className="user-page-wrapper">
       <header className="user-header">
@@ -74,6 +88,14 @@ const Users = ({
             <th>Action</th>
           </thead>
           <tbody>
+            <button
+              onClick={_handleShowUp}
+              className="toggle-button"
+              id="centered-toggle-button"
+            >
+              click me
+            </button>
+            <Model />
             {visibleUsersRedux.length ? (
               visibleUsersRedux.map((user, idx) => {
                 return (
