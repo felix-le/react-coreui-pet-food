@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { Spinner } from "reactstrap";
 import { connect } from "react-redux";
 
@@ -7,26 +6,29 @@ import { connect } from "react-redux";
 // import Button from "./components/Button";
 import User from "./components/User";
 
-import { removeUser } from "../../../redux/actions";
+import { searchUser, removeUser, fectchUsers } from "../../../redux/actions";
 
 // configs
 import { URL_PAGE } from "../../../configs";
 
-const Users = ({ history, removeUser, visibleUsersRedux }) => {
-  const [initialUsers, setInitiaUsers] = useState([]);
-  const [visibleUsers, setVisibleUsers] = useState([]);
+const Users = ({
+  history,
+  visibleUsersRedux,
+  loading,
+  error,
+  data,
+  initUsersRedux,
+  removeUser,
+  fectchUsers,
+  searchUser,
+}) => {
+  // const [visibleUsersRedux, setVisibleUsersRedux] = useState([]);
 
   useEffect(() => {
     setTimeout(() => {
-      fetchUsers();
-    }, 500);
-    const fetchUsers = async () => {
-      const res = await axios.get("http://localhost:4000/users");
-      setInitiaUsers(res.data);
-      setVisibleUsers(res.data);
-    };
+      fectchUsers();
+    }, 1000);
   }, []);
-
   const _handleUpdate = (id) => {
     console.log("update", id);
   };
@@ -36,18 +38,13 @@ const Users = ({ history, removeUser, visibleUsersRedux }) => {
   };
 
   const _handleDelete = (id) => {
-    const removeArr = visibleUsers.filter((item) => item.id !== id);
-    setVisibleUsers(removeArr);
+    removeUser(id);
   };
   // console.log('initialUsers', initialUsers)
   const _handleSearchValue = (event) => {
     const { value } = event.target;
-
-    const keywords = value.toLowerCase();
-    const filterUser = initialUsers.filter(
-      (user) => user.name.toLowerCase().indexOf(keywords) !== -1
-    );
-    setVisibleUsers(filterUser);
+    const keywordsSearch = value.toLowerCase();
+    searchUser(keywordsSearch);
   };
   return (
     <div className="user-page-wrapper">
@@ -77,8 +74,8 @@ const Users = ({ history, removeUser, visibleUsersRedux }) => {
             <th>Action</th>
           </thead>
           <tbody>
-            {visibleUsers.length ? (
-              visibleUsers.map((user, idx) => {
+            {visibleUsersRedux.length ? (
+              visibleUsersRedux.map((user, idx) => {
                 return (
                   <tr key={Math.random()} className="userItem">
                     <User
@@ -107,18 +104,30 @@ const Users = ({ history, removeUser, visibleUsersRedux }) => {
 
 const mapStateToProps = (state) => {
   const {
-    appReducers: { visibleUsersRedux, loading, error },
+    appReducers: {
+      visibleUsersRedux,
+      loading,
+      error,
+      data,
+      initUsersRedux,
+      keywords,
+    },
   } = state;
-  console.log(state);
+  // console.log(state);
   return {
     visibleUsersRedux,
     loading,
     error,
+    data,
+    initUsersRedux,
+    keywords,
   };
 };
 
 const mapDispatchToProps = {
   removeUser,
+  fectchUsers,
+  searchUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

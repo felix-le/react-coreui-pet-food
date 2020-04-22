@@ -1,4 +1,12 @@
-import { SET_USER, REMOVE_USER } from "./types";
+import {
+  SET_USER,
+  REMOVE_USER,
+  FETCH_USER_START,
+  FETCH_USER_SUCCESS,
+  FETCH_USER_ERROR,
+  SEARCH_USER,
+} from "./types";
+import * as api from "../server/api";
 
 export const setUser = (username, password) => ({
   type: SET_USER,
@@ -16,3 +24,29 @@ export const removeUser = (id) => ({
     loading: false,
   },
 });
+
+export const searchUser = (keywords) => ({
+  type: SEARCH_USER,
+  payload: {
+    keywords,
+    loading: false,
+  },
+});
+
+export const fectchUsers = () => async (dispatch) => {
+  dispatch({
+    type: FETCH_USER_START,
+  });
+  try {
+    const res = await api.apiFetchUsers();
+    const data = res.data;
+    dispatch({
+      type: FETCH_USER_SUCCESS,
+      payload: { data },
+    });
+  } catch (err) {
+    dispatch({
+      type: FETCH_USER_ERROR,
+    });
+  }
+};
