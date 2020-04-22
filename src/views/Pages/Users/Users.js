@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Spinner } from "reactstrap";
 import { connect } from "react-redux";
-
+import Button from "./components/Button";
 // Import components
 // import Button from "./components/Button";
 import User from "./components/User";
@@ -23,7 +23,11 @@ const Users = ({
   searchUser,
 }) => {
   // const [visibleUsersRedux, setVisibleUsersRedux] = useState([]);
-
+  const [show, setShow] = useState(false);
+  const [modelText, setModelText] = useState({
+    title: "Do you want to delete user?",
+    des: "no --> comeback, yes --> moving on",
+  });
   useEffect(() => {
     setTimeout(() => {
       fectchUsers();
@@ -38,6 +42,7 @@ const Users = ({
   };
 
   const _handleDelete = (id) => {
+    // _handleShowUp(id)
     removeUser(id);
   };
   // console.log('initialUsers', initialUsers)
@@ -47,23 +52,54 @@ const Users = ({
     searchUser(keywordsSearch);
   };
 
-  const Model = () => {
+  const _handleYesButton = () => {
+    setModelText({
+      title: " please confirm",
+      des: " if you click yes --> it will be delete ",
+    });
+  };
+
+  const _handleNoButton = () => {
+    setShow(false);
+  };
+  const Modelcontent = () => {
     return (
-      <div className="modal" id="modal">
-        <h2>modal window</h2>
-        <div className="content">hello</div>
-        <div className="action">
-          <button>close</button>
+      <div className={`modalUser ${show ? "show-up-modal" : ""}`} id="myModal">
+        <div className="modal-content-modalUser">
+          <div className="modalcontent-wrapper">
+            <span className="close-modalUser" onClick={_handleNoButton}>
+              &times;
+            </span>
+            <h2 className="text-center">{modelText.title}</h2>
+            <p>{modelText.des}</p>
+            <Button
+              handleClick={_handleNoButton}
+              nameBtn="No"
+              btnType="btn btn-primary btn-block"
+            />
+            <Button
+              handleClick={_handleYesButton}
+              nameBtn="Yes"
+              btnType="btn btn-danger btn-block"
+            />
+          </div>
         </div>
       </div>
     );
   };
-  const _handleShowUp = () => {};
 
+  const _handleConfirm = (id) => {};
+
+  const _handleOverlay = (id) => {
+    console.log(id);
+    setShow(true);
+  };
+  console.log(show);
   return (
     <div className="user-page-wrapper">
       <header className="user-header">
         <h3>Member</h3>
+        <Modelcontent />
         <div className="input-group">
           <button type="button" className="btn search-btn">
             <i className="icon-magnifier"></i>
@@ -88,14 +124,6 @@ const Users = ({
             <th>Action</th>
           </thead>
           <tbody>
-            <button
-              onClick={_handleShowUp}
-              className="toggle-button"
-              id="centered-toggle-button"
-            >
-              click me
-            </button>
-            <Model />
             {visibleUsersRedux.length ? (
               visibleUsersRedux.map((user, idx) => {
                 return (
@@ -109,7 +137,7 @@ const Users = ({
                       email={user.email}
                       handleUpdate={() => _handleUpdate(user.id)}
                       handleView={() => _handleView(user.id)}
-                      handleDelete={() => _handleDelete(user.id)}
+                      handleDelete={() => _handleOverlay(user.id)}
                     />
                   </tr>
                 );
