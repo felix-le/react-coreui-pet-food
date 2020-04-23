@@ -29,7 +29,6 @@ export const searchUser = (keywords) => ({
   type: SEARCH_USER,
   payload: {
     keywords,
-    loading: false,
   },
 });
 

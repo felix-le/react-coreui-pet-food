@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import {
   Badge,
   UncontrolledDropdown,
@@ -12,7 +12,7 @@ import {
   NavbarToggler,
 } from "reactstrap";
 
-// import { URL_PAGE } from "../../configs";
+import { URL_PAGE } from "../../configs";
 // import Profile from "../../views/Pages/Profile";
 
 import routes from "../../routes";
@@ -21,14 +21,15 @@ import routes from "../../routes";
 import logo from "../../assets/img/brand/logo.svg";
 import avatar6 from "../../assets/img/avatars/6.jpg";
 
-const DefaultHeader = (props) => {
+const DefaultHeader = () => {
+  const history = useHistory();
+  console.log(history);
   const toggleNavbar = () => {
     console.log("toggleNavbar");
   };
   const _handleViewProfile = () => {
-    // props.history.push("/");
+    history.push(URL_PAGE.PROFILE);
   };
-  // console.log(`${URL_PAGE.PROFILE}`);
 
   return (
     <>

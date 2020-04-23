@@ -5,7 +5,7 @@ const url = {
   SETTINGS: "/settings",
   USERS: "/users",
   USERS_DETAIL: "/user-detail",
-  PROFILE: "/Profile",
+  PROFILE: "/profile",
 };
 
 export default url;
